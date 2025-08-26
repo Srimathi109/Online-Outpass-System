@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Apply for Outpass - SSN Outpass System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            margin: 0; 
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background: #fff;
+            margin: 40px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            padding: 30px;
+        }
+        h2 {
+            text-align: center;
+            color: #3085d6;
+            margin-bottom: 30px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+        }
+        input[type="text"], input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+        }
+        button {
+            margin-top: 25px;
+            width: 100%;
+            padding: 12px;
+            background: #3085d6;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2567a9;
+        }
+        #popup-message {
+            display: none;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="popup-message">{{ msg }}</div>
+
+    <div class="container">
+        <h2>Apply for Outpass</h2>
+        <form method="POST" onsubmit="return validatePhones()">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+            
+            <label for="digital_id">Digital ID</label>
+            <input type="text" id="digital_id" name="digital_id" required />
+            
+            <label for="department">Department</label>
+            <input type="text" id="department" name="department" required />
+
+            <label for="from_date">Departure date</label>
+            <input type="date" id="from_date" name="from_date" required />
+
+            <label for="from_time">Department time</label>
+            <input type="time" id="from_time" name="from_time" required />
+
+            <label for="to_date">Arrival date</label>
+            <input type="date" id="to_date" name="to_date" required />
+            
+            <label for="to_time">Arrival Time</label>
+            <input type="time" id="to_time" name="to_time" required />
+
+            <label for="room_no">Room Number</label>
+            <input type="text" id="room_no" name="room_no" required />
+
+            <label for="hostel_no">Hostel Number</label>
+            <input type="text" id="hostel_no" name="hostel_no" required />
+
+            <label for="phone_number">Phone Number</label>
+            <input type="tel" id="phone_number" name="phone_number" required />
+
+            <label for="parent_phone_number">Parent Phone Number</label>
+            <input type="tel" id="parent_phone_number" name="parent_phone_number" required />
+
+            <label for="proof">Letter from Mentor</label>
+            <input type="file" id="proof" name="proof" required />
+
+            <label for="stud_sign">Student Signature</label>
+            <input type="file" id="stud_sign" name="stud_sign" required />
+           
+            <button type="submit" onclick="validatePhones()">Submit Outpass</button>
+        </form>
+        {% if application_number %}
+        <div style="margin-top: 10px; font-weight: bold; color: #2e7d32;">
+        Form Submitted Successfully!!!!!!
+        Your Application Number: {{ application_number }}
+        </div>
+    {% endif %}
+
+    </div>
+
+    <script>
+        function validatePhones() {
+            var phone = document.getElementById('phone_number').value;
+            var parentPhone = document.getElementById('parent_phone_number').value;
+            var phoneRegex = /^\d{10}$/;
+
+            if (!phoneRegex.test(phone)) {
+                alert("Invalid student phone number! Must be 10 digits.");
+                return false;
+            }
+            if (!phoneRegex.test(parentPhone)) {
+                alert("Invalid parent's phone number! Must be 10 digits.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>

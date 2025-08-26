@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Check Outpass Status - SSN Outpass System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f2f5;
+            margin: 0; 
+            padding: 20px;
+        }
+        .container {
+            max-width: 480px;
+            background: #fff;
+            margin: 40px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            text-align: center;
+        }
+        h2 {
+            color: #3085d6;
+            margin-bottom: 30px;
+        }
+        input[type="text"] {
+            width: 90%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 12px 30px;
+            background: #3085d6;
+            border: none;
+            color: white;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2567a9;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+        .status {
+            color: green;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Check Outpass Status</h2>
+        <form method="POST">
+            <input type="text" name="query" placeholder="Enter Digital ID or Phone Number" required />
+            <br/>
+            <button type="submit">Check Status</button>
+        </form>
+
+        {% if status %}
+            <div class="message status">Status: {{ status }}</div>
+        {% elif msg %}
+            <div class="message error">{{ msg }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f0f2f5;
+        }
+        .login-box {
+            background: #fff;
+            padding: 80px;
+            border-radius: 8px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            width: 350px;
+            text-align: center;
+        }
+        .login-box input {
+            margin: 8px 0;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-box button {
+            width: 100%;
+            padding: 12px;
+            background: #3085d6;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-top: 12px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+        .login-box .notification {
+            color: #e74c3c;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        {% if msg %}
+            <div class="notification">{{ msg }}</div>
+        {% endif %}
+        <form method="POST" action="/login">
+            <input type="email" name="email" placeholder="Your Email" required autofocus>
+            <input type="password" name="password" placeholder="Your Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSN Outpass System</title>
+    <style>
+        body {
+            margin: 0;
+            background: #f0f2f5;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 700px;
+            margin: 50px auto;
+        }
+        h1 {
+            text-align: center;
+            color: #3085d6;
+        }
+        .dashboard-grid {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 50px;
+        }
+        .card {
+            background: #fff;
+            padding: 32px 24px;
+            border-radius: 10px;
+            box-shadow: 0 3px 16px rgba(48,133,214,0.08);
+            min-width: 180px;
+            text-align: center;
+            cursor: pointer;
+            transition: box-shadow .2s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 32px rgba(48,133,214,0.18);
+        }
+        .card-title {
+            font-size: 1.18rem;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        .card-desc {
+            font-size: 1rem;
+            color: #666;
+        }
+        a{
+            text-decoration: none;
+        }
+        .card-title:hover{
+            color:midnightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SSN Outpass System</h1>
+        <div class="dashboard-grid">
+            <a href="{{ url_for('apply_outpass') }}">
+                <div class="card">
+                    <div class="card-title">Apply for Outpass</div>
+                    <div class="card-desc">Submit a new outpass request.</div>
+                </div>
+            </a>
+            <a href="{{ url_for('check_status') }}">
+                <div class="card">
+                    <div class="card-title">Check Status</div>
+                    <div class="card-desc">View your outpass request status.</div>
+                </div>
+            </a>
+            <a href="{{ url_for('download_outpass') }}">
+                <div class="card">
+                    <div class="card-title">Download Outpass</div>
+                    <div class="card-desc">Get your approved outpass PDF.</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
