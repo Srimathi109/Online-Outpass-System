@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.secret_key = 'SSN123'
 
 users = {
-    "srimathi2410307@ssn.edu.in": "1234"
+    "user@ssn.edu.in": "1234"
 }
 
 submitted_forms = {}
@@ -156,3 +156,4 @@ def logout():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
