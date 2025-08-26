@@ -29,5 +29,6 @@ New
 3. In Apply for outpass all the required fields must be filled.A confirmation mail will be sent to the recipient
 4. In check status the student must enter the application number and check their outpass request status
 5. Once it is approved the outpass can be downloaded by the student
+[Screen Recording 2025-08-26 133132.zip](https://github.com/user-attachments/files/21983519/Screen.Recording.2025-08-26.133132.zip)
 
 https://srimathi109.github.io/Online-Outpass-System/
