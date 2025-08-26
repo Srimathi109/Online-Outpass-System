@@ -5,7 +5,7 @@
 - Hostel Incharge portal → final approve/reject
 - Student can view status and **download/print approved pass**
 - Seed demo users (created on first run)
-  - Student: `srimathi2410307@ssn.edu` / `1234`
+  - Student: `user@ssn.edu` / `1234`
 
 ## Tech Stack
 - Python Flask,Bootstrap (CDN)
